@@ -1,5 +1,9 @@
 ﻿using GetDinner.Contracts.Authentication;
 using GetDinners.Application.Authentication;
+using GetDinners.Application.Authentication.Commands.Register;
+using GetDinners.Application.Authentication.Queries;
+using MapsterMapper;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,40 +13,41 @@ namespace GetDinners.Api.Controllers
     [AllowAnonymous]
     public class AuthenticationController : ApiController
     {
-        private readonly IAuthenticationService _authenticationService;
+        private readonly IMapper _mapper;
+        private readonly ISender _mediator;
 
-        public AuthenticationController(IAuthenticationService authenticationService)
+        public AuthenticationController(ISender mediator, IMapper mapper)
         {
-            _authenticationService = authenticationService; 
-
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
-
-
         [HttpPost("register")]
-        public IActionResult Register(RegisterRequest registerRequest)
+        public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
-            var authenticationServiceResponse = _authenticationService.Register(registerRequest.FirstName,
-                registerRequest.LastName,
-                registerRequest.Email,
-                registerRequest.Password);
+            var command = _mapper.Map<RegisterCommand>(registerRequest);
 
-            var response = new AuthenticationResponse(
-                authenticationServiceResponse.user.Id,
-                authenticationServiceResponse.user.FirstName,
-                authenticationServiceResponse.user.LastName,
-                authenticationServiceResponse.user.Email,
-                authenticationServiceResponse.token); 
+            var authentcationServiceResult = await _mediator.Send(command);
 
-            return Ok(response);
+            return authentcationServiceResult.Match(
+                authentcationServiceResult => Ok(_mapper.Map<AuthenticationResponse>(authentcationServiceResult)),
+                errors => Problem(errors));
+
         }
 
 
         [HttpPost("login")]
-        public IActionResult Login(LoginRequest  loginRequest)
+        public async Task<IActionResult> Login(LoginRequest  loginRequest)
         {
-            return Ok();
 
+            var query = _mapper.Map<LoginQuery>(loginRequest);
+
+            var authenticationServiceResult = await _mediator.Send(query);
+
+            return authenticationServiceResult.Match(
+                authenticationServiceResult => Ok(_mapper.Map<AuthenticationResponse>(authenticationServiceResult)),
+                errors => Problem(errors)
+                );
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using ErrorOr;
+using GetDinners.Application.Authentication.Common;
 using MediatR;
 using System;
 using System.Collections.Generic;

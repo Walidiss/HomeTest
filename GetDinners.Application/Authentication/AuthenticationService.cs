@@ -1,4 +1,5 @@
-﻿using GetDinners.Application.Common.Authentication;
+﻿using GetDinners.Application.Authentication.Common;
+using GetDinners.Application.Common.Authentication;
 using GetDinners.Application.Persistance;
 using GetDinners.Domain.Entities;
 using System;
