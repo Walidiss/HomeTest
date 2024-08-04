@@ -1,4 +1,6 @@
-﻿using GetDinners.Application.Authentication;
+﻿using FluentValidation;
+using GetDinners.Application.Authentication;
+using GetDinners.Application.Authentication.Common.Behaviors;
 using GetDinners.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,8 +20,12 @@ namespace GetDinners.Application
         {
             //services.AddMediatR(typeof(DependencyInjection).Assembly);
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-
             services.AddScoped<IAuthenticationService , AuthenticationService>();
+            services.AddScoped(
+                typeof(IPipelineBehavior<,>),
+                typeof(ValidationBehavior<,>));
+
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
         }
     }
