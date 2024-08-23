@@ -42,6 +42,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModelsDomain", "ModelsDomai
 		..\..\..\Downloads\aggregatemd\Aggregates.User.md = ..\..\..\Downloads\aggregatemd\Aggregates.User.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Menu", "Menu", "{FCF129DA-2959-4BEE-A5B3-160573D70BD4}"
+	ProjectSection(SolutionItems) = preProject
+		CreateMenuRequest.http = CreateMenuRequest.http
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +81,7 @@ Global
 		{A12E962D-15D8-417F-ADDD-CFC5F18E0731} = {C985B900-8F51-4B77-B134-FF0AC42F740A}
 		{C0484699-C1AF-4DB2-865C-519E5A6C0ED9} = {C985B900-8F51-4B77-B134-FF0AC42F740A}
 		{5DD2FDF5-53CE-43B5-8ED6-33A1DFC93FD6} = {D4E1B29A-B5AA-4EF9-B2E8-FB8BF84B20B8}
+		{FCF129DA-2959-4BEE-A5B3-160573D70BD4} = {C985B900-8F51-4B77-B134-FF0AC42F740A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5B039DB-2BF9-497B-8EE3-800C498753F0}

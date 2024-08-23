@@ -4,7 +4,7 @@ using GetDinners.Application.Common.Authentication;
 using GetDinners.Application.Common.Interfaces;
 using GetDinners.Application.Persistance;
 using GetDinners.Infrastructure.Authentication;
-using GetDinners.Infrastructure.Persistance;
+using GetDinners.Infrastructure.Persistance.Repositories;
 using GetDinners.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
@@ -20,12 +20,20 @@ namespace GetDinners.Infrastructure
         public static IServiceCollection AddInfrastructure(
             this IServiceCollection services,
             IConfiguration configuration)
-        {
-           
+        {            
+            services
+                .AddPersistance()
+                .AddAuth(configuration);
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddAuth(configuration);
             return services;
+
+        }
+
+        public static IServiceCollection AddPersistance(this IServiceCollection services)
+        {
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
+            return services;    
 
         }
 

@@ -1,7 +1,7 @@
 ﻿using GetDinners.Application.Persistance;
 using GetDinners.Domain.Entities;
 
-namespace GetDinners.Infrastructure.Persistance
+namespace GetDinners.Infrastructure.Persistance.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -15,7 +15,7 @@ namespace GetDinners.Infrastructure.Persistance
 
         public User? GetUserByEmail(string email)
         {
-         return  users.SingleOrDefault(x=>x.Email == email);
+            return users.SingleOrDefault(x => x.Email == email);
         }
     }
 }
