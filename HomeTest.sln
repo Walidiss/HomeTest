@@ -31,6 +31,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dinners", "Dinners", "{C048
 		ListDinners.http = ListDinners.http
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModelsDomain", "ModelsDomain", "{5DD2FDF5-53CE-43B5-8ED6-33A1DFC93FD6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\aggregatemd\Aggregates.Bill.md = ..\..\..\Downloads\aggregatemd\Aggregates.Bill.md
+		..\..\..\Downloads\aggregatemd\Aggregates.Dinner.md = ..\..\..\Downloads\aggregatemd\Aggregates.Dinner.md
+		..\..\..\Downloads\aggregatemd\Aggregates.Guest.md = ..\..\..\Downloads\aggregatemd\Aggregates.Guest.md
+		..\..\..\Downloads\aggregatemd\Aggregates.Host.md = ..\..\..\Downloads\aggregatemd\Aggregates.Host.md
+		..\..\..\Downloads\aggregatemd\Aggregates.Menu.md = ..\..\..\Downloads\aggregatemd\Aggregates.Menu.md
+		..\..\..\Downloads\aggregatemd\Aggregates.MenuReview.md = ..\..\..\Downloads\aggregatemd\Aggregates.MenuReview.md
+		..\..\..\Downloads\aggregatemd\Aggregates.User.md = ..\..\..\Downloads\aggregatemd\Aggregates.User.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +75,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A12E962D-15D8-417F-ADDD-CFC5F18E0731} = {C985B900-8F51-4B77-B134-FF0AC42F740A}
 		{C0484699-C1AF-4DB2-865C-519E5A6C0ED9} = {C985B900-8F51-4B77-B134-FF0AC42F740A}
+		{5DD2FDF5-53CE-43B5-8ED6-33A1DFC93FD6} = {D4E1B29A-B5AA-4EF9-B2E8-FB8BF84B20B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D5B039DB-2BF9-497B-8EE3-800C498753F0}

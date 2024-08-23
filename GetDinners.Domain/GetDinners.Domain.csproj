@@ -10,4 +10,12 @@
     <PackageReference Include="ErrorOr" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Users\Entities\" />
+    <Folder Include="MenuReview\Entities\" />
+    <Folder Include="Hosts\Entities\" />
+    <Folder Include="Guests\Entities\" />
+    <Folder Include="Bills\Entities\" />
+  </ItemGroup>
+
 </Project>
