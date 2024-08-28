@@ -35,5 +35,13 @@ namespace GetDinners.Domain.Dinners.ValueObjects
             yield return Longitude;
 
         }
+
+#pragma warning disable CS8618
+
+        private Location()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

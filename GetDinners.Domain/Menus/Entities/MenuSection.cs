@@ -32,6 +32,12 @@ namespace GetDinners.Domain.Menus.Entities
         {
             return new MenuSection(MenuSectionId.CreateUnique(), name, description, items);
         }
+#pragma warning disable CS8618
 
+        private MenuSection()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

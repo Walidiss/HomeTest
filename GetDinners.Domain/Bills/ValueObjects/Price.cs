@@ -20,13 +20,20 @@ namespace GetDinners.Domain.Bills.ValueObjects
 
         public static Price CreateNew(decimal amount, string currency)
         {
-            return new Price(amount,currency);
+            return new Price(amount, currency);
         }
 
+#pragma warning disable CS8618
+
+        private Price()
+        {
+
+        }
+#pragma warning restore CS8618
         public override IEnumerable<object> GetEqualityComponents()
         {
-           yield return Amount;
-           yield return Currency;
+            yield return Amount;
+            yield return Currency;
         }
     }
 }

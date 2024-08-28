@@ -12,7 +12,7 @@ namespace GetDinners.Domain.Menus.ValueObjects
 
     public sealed class MenuItemId : ValueObject
     {
-        public Guid Value { get; }
+        public Guid Value {get; private set;}
 
         //Le constructeur est private, ce qui signifie que la classe MenuItemId ne peut être instanciée que de l'intérieur de la classe elle-même.
         //Il prend un Guid comme paramètre et l'affecte à la propriété Value.
@@ -23,16 +23,29 @@ namespace GetDinners.Domain.Menus.ValueObjects
         }
 
         //CreateUnique() est une méthode statique qui permet de créer une nouvelle instance unique de MenuItemId.
-       // Elle génère un Guid unique avec Guid.NewGuid() et l'utilise pour créer une nouvelle instance de MenuItemId.
-      //Cette méthode est un exemple d'une factory method, qui est une méthode statique utilisée pour contrôler l'instanciation des objets.
+        // Elle génère un Guid unique avec Guid.NewGuid() et l'utilise pour créer une nouvelle instance de MenuItemId.
+        //Cette méthode est un exemple d'une factory method, qui est une méthode statique utilisée pour contrôler l'instanciation des objets.
         public static MenuItemId CreateUnique()
         {
-            return new MenuItemId(Guid.NewGuid());  
+            return new MenuItemId(Guid.NewGuid());
+        }
+
+        public static MenuItemId Create(Guid value)
+        {
+
+            return new MenuItemId(value);
         }
 
         public override IEnumerable<object> GetEqualityComponents()
         {
             yield return Value;
         }
+#pragma warning disable CS8618
+
+        private MenuItemId()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

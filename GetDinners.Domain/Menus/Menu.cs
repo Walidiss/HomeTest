@@ -22,7 +22,7 @@ namespace GetDinners.Domain.Menus
 
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public AverageRating AverageRating { get; }
+        public AverageRating AverageRating { get; private set; }
 
         public IReadOnlyList<MenuSection> Sections => _sections.AsReadOnly();
 
@@ -53,6 +53,12 @@ namespace GetDinners.Domain.Menus
                 sections ?? new());
             return menu;
         }
+#pragma warning disable CS8618
 
+        private Menu()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

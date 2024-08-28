@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GetDinners.Domain.Common.Models
 {
     public abstract class Entity<TId> : IEquatable<Entity<TId>>
-        where TId : notnull
+            where TId : notnull
     {
         public TId Id { get; protected set; }
         protected Entity(TId id)
@@ -37,6 +37,12 @@ namespace GetDinners.Domain.Common.Models
         {
             return Id.GetHashCode();
         }
+#pragma warning disable CS8618
+
+        protected Entity() { }
+
+#pragma warning restore CS8618
+
 
     }
 }
