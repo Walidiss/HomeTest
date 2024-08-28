@@ -11,9 +11,9 @@ namespace GetDinners.Domain.Menus.Entities
     public class MenuItem : Entity<MenuItemId>
     {
 
-        public string Name { get;  }
+        public string Name { get; private set; }
         
-        public string Description { get; }
+        public string Description { get; private set;}
 
         public MenuItem(MenuItemId menuItemId, string name, string description) : base(menuItemId)
         {
@@ -25,5 +25,12 @@ namespace GetDinners.Domain.Menus.Entities
 
             return new MenuItem(MenuItemId.CreateUnique(),name,description);
         }
+#pragma warning disable CS8618
+
+        private MenuItem()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

@@ -9,7 +9,7 @@ namespace GetDinners.Domain.Menus.ValueObjects
 {
     public sealed class MenuId : ValueObject
     {
-        public Guid Value { get; }
+        public Guid Value { get; private set;}
 
         private MenuId(Guid value)
         {
@@ -22,10 +22,21 @@ namespace GetDinners.Domain.Menus.ValueObjects
             return new(Guid.NewGuid());
 
         }
+        public static MenuId Create(Guid value)
+        {
 
+        return new(value); 
+        }
         public override IEnumerable<object> GetEqualityComponents()
         {
             yield return Value;
         }
+#pragma warning disable CS8618
+
+        private MenuId()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

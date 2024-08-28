@@ -10,10 +10,17 @@ namespace GetDinners.Infrastructure.Persistance.Repositories
 {
     public class MenuRepository : IMenuRepository
     {
-        public List<Menu> Menus = new List<Menu>();
+        private readonly HomeTestDbContext _dbContext;
+
+        public MenuRepository(HomeTestDbContext homeTestDbContext)
+        {
+            _dbContext = homeTestDbContext;
+        }
+
         public void AddMenu(Menu menu)
         {
-            Menus.Add(menu);
+            _dbContext.Add(menu);
+            _dbContext.SaveChanges();
         }
     }
 }

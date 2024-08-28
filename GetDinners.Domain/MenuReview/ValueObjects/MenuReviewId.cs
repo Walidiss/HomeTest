@@ -9,7 +9,7 @@ namespace GetDinners.Domain.MenuReview.ValueObjects
 {
     public sealed class MenuReviewId : ValueObject
     {
-        public Guid Value { get; }
+        public Guid Value {get; private set; }
 
         private MenuReviewId(Guid value)
         {
@@ -27,5 +27,12 @@ namespace GetDinners.Domain.MenuReview.ValueObjects
         {
             yield return Value;
         }
+#pragma warning disable CS8618
+
+        private MenuReviewId()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }

@@ -12,7 +12,7 @@ namespace GetDinners.Domain.Bills.ValueObjects
     public sealed class BillId : ValueObject
     {
 
-       public Guid Value {  get;}
+       public Guid Value { get; private set; }
 
         private BillId(Guid value)
         {
@@ -23,7 +23,10 @@ namespace GetDinners.Domain.Bills.ValueObjects
         {
             return new(Guid.NewGuid());
         }
-
+        public BillId()
+        {
+                
+        }
         public override IEnumerable<object> GetEqualityComponents()
         {
            yield return Value;  

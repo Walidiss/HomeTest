@@ -10,7 +10,7 @@ namespace GetDinners.Domain.Dinners.ValueObjects
     public sealed class ReservationId : ValueObject
     {
 
-        public Guid Value {  get;}
+        public Guid Value { get; private set; }
 
         private ReservationId(Guid value)
         {
@@ -26,5 +26,13 @@ namespace GetDinners.Domain.Dinners.ValueObjects
         {
            yield return Value;
         }
+#pragma warning disable CS8618
+
+        private ReservationId()
+        {
+        }
+
+#pragma warning restore CS8618
+
     }
 }

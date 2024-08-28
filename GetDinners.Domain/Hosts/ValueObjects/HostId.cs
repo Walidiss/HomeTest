@@ -9,7 +9,7 @@ namespace GetDinners.Domain.Hosts.ValueObjects
 {
     public sealed class HostId : ValueObject
     {
-        public Guid Value { get; }
+        public Guid Value { get; private set; }
         private HostId(Guid value)
         {
             Value = value;
@@ -27,5 +27,13 @@ namespace GetDinners.Domain.Hosts.ValueObjects
         {
            yield return Value;
         }
+
+#pragma warning disable CS8618
+
+        private HostId()
+        {
+        }
+
+#pragma warning restore CS8618
     }
 }
