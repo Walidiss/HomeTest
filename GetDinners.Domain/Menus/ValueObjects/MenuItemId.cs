@@ -10,9 +10,9 @@ using System.Xml;
 namespace GetDinners.Domain.Menus.ValueObjects
 {
 
-    public sealed class MenuItemId : ValueObject
+    public sealed class MenuItemId : AggregateRootId<Guid>
     {
-        public Guid Value {get; private set;}
+        public override Guid Value {get; protected set;}
 
         //Le constructeur est private, ce qui signifie que la classe MenuItemId ne peut être instanciée que de l'intérieur de la classe elle-même.
         //Il prend un Guid comme paramètre et l'affecte à la propriété Value.

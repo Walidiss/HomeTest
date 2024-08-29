@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Menus
 {
-    public sealed class Menu : Entity<MenuId>
+    public sealed class Menu : AggregateRoot<MenuId, Guid>
     {
         private readonly List<MenuSection> _sections = new();
         private readonly List<DinnerId> _dinnerIds = new();
@@ -30,7 +30,7 @@ namespace GetDinners.Domain.Menus
         public IReadOnlyList<DinnerId> DinnerIds => _dinnerIds.AsReadOnly();
         public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
 
-        public DateTime CreatedDateTime { get; private set; }
+        public DateTime CreatedDateTime { get; private set; } = DateTime.Now;
         public DateTime UpdatedDateTime { get; private set; }
 
         public Menu(MenuId menuId, HostId hostId, string name, string description, AverageRating averageRating, List<MenuSection>? sections) : base(menuId)

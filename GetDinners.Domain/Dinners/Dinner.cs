@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Dinners
 {
-    public sealed class Dinner : Entity<DinnerId>
+    public sealed class Dinner : AggregateRoot<DinnerId, Guid>
     {
         private readonly List<Reservation> _reservations = new();
 

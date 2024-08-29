@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Users
 {
-    public sealed class User : Entity<UserId>
+    public sealed class User : AggregateRoot<UserId, Guid>
     {
 
         public string FirstName { get; private set; }

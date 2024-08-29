@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Bills
 {
-    public class Bill : Entity<BillId>
+    public class Bill : AggregateRoot<BillId,Guid>
     {
 
         public DinnerId DinnerId { get; private set; }
