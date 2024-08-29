@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Dinners.ValueObjects
 {
-    public sealed class DinnerId : ValueObject
+    public sealed class DinnerId : AggregateRootId<Guid>
     {
-        public Guid Value { get; private set; }
-
-        private DinnerId(Guid value)
+        public override Guid Value { get; protected set; }
+        public DinnerId(Guid value)
         {
             Value = value;
         }

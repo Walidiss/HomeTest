@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.MenuReview
 {
-    public sealed class MenuReview :Entity<MenuReviewId>
+    public sealed class MenuReview :AggregateRoot<MenuReviewId, Guid>
     {
         public Rating Rating {get; private set; }
         public string Comment {get; private set; }

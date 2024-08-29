@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Menus.ValueObjects
 {
-    public sealed class MenuSectionId : ValueObject
+    public sealed class MenuSectionId : AggregateRootId<Guid>
     {
-        public Guid Value {get; private set;}
+        public override Guid Value {get; protected set;}
 
 
         //Le constructeur est private, ce qui signifie que la classe MenuItemId ne peut être instanciée que de l'intérieur de la classe elle-même.

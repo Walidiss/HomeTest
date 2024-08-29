@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Hosts
 {
-    public sealed class Host : Entity<HostId>
+    public sealed class Host : AggregateRoot<HostId, Guid>
     {
 
         private readonly List<MenuId> _menuIds = new();

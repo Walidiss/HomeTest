@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Guests
 {
-    public sealed class Guest : Entity<GuestId>
+    public sealed class Guest : AggregateRoot<GuestId, Guid>
     {
         public Guest(GuestId id) : base(id)
         {
