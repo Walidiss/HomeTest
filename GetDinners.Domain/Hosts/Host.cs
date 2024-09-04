@@ -48,7 +48,7 @@ namespace GetDinners.Domain.Hosts
             UpdatedDateTime = updatedDateTime;
         }
 
-        private static Host Create(string firstName,
+        public static Host Create(string firstName,
         string lastName,
         string profileImage,
         AverageRating averageRating,

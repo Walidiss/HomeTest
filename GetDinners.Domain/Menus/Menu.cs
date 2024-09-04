@@ -4,6 +4,7 @@ using GetDinners.Domain.Dinners.ValueObjects;
 using GetDinners.Domain.Hosts.ValueObjects;
 using GetDinners.Domain.MenuReview.ValueObjects;
 using GetDinners.Domain.Menus.Entities;
+using GetDinners.Domain.Menus.Events;
 using GetDinners.Domain.Menus.ValueObjects;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,8 @@ namespace GetDinners.Domain.Menus
                 description,
                 AverageRating.CreateNew(0),
                 sections ?? new());
+          
+            menu.AddDomainEvent(new CreatedMenuDomainEvent(menu));
             return menu;
         }
 #pragma warning disable CS8618
