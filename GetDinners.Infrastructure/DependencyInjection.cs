@@ -5,6 +5,7 @@ using GetDinners.Application.Common.Interfaces;
 using GetDinners.Application.Persistance;
 using GetDinners.Infrastructure.Authentication;
 using GetDinners.Infrastructure.Persistance;
+using GetDinners.Infrastructure.Persistance.Interceptors;
 using GetDinners.Infrastructure.Persistance.Repositories;
 using GetDinners.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,7 +39,11 @@ namespace GetDinners.Infrastructure
             services.AddDbContext<HomeTestDbContext>(options =>
             //options.UseSqlServer("Server =.; Database = HomeTest; Trusted_Connection=True"));
             options.UseSqlServer("Server=localhost;Database=HomeTest;TrustServerCertificate=True;Integrated Security=True"));
+
+            //PublishDomainEventInterceptor to handle the domainEvents and dispatch it to the correspond DomainEventHandler 
+            services.AddScoped<PublishDomainEventInterceptor>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IHostRepository, HostRepository>();
             services.AddScoped<IMenuRepository, MenuRepository>();
             return services;    
 

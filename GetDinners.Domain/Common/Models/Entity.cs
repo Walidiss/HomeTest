@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace GetDinners.Domain.Common.Models
 {
-    public abstract class Entity<TId> : IEquatable<Entity<TId>>
+    public abstract class Entity<TId> : IEquatable<Entity<TId>> ,IHasDomainEvents
             where TId : notnull
     {
+        private List<IDomainEvent> _domainEvents = new();
+        public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
         public TId Id { get; protected set; }
         protected Entity(TId id)
         {
@@ -36,6 +39,23 @@ namespace GetDinners.Domain.Common.Models
         public override int GetHashCode()
         {
             return Id.GetHashCode();
+        }
+
+        //add domainEvent to the list of DomainEvents 
+        public void AddDomainEvent(IDomainEvent domainEvent)
+        {
+            _domainEvents.Add(domainEvent);
+        }
+
+        // remove a domainEvent from the list of _domainEvents
+        public void RemoveDomainEvent(IDomainEvent domainEvent)
+        {
+            _domainEvents.Remove(domainEvent);
+        }
+        //clear the _domainEvent List 
+        public void ClearDomainEvents()
+        {
+            _domainEvents.Clear();
         }
 #pragma warning disable CS8618
 
