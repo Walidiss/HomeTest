@@ -65,6 +65,17 @@ namespace GetDinners.Domain.Hosts
             DateTime.UtcNow);
         }
 
+        public void AddMenuId(MenuId menuId)
+        {
+            _menuIds.Add(menuId);
+        }
+
+        public void AddDinnerId(DinnerId dinnerId)
+        {
+            _dinnerIds.Add(dinnerId);
+        }
+         
+
 #pragma warning disable CS8618
 
         private Host()

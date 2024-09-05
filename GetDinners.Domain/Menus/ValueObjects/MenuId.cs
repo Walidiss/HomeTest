@@ -11,7 +11,7 @@ namespace GetDinners.Domain.Menus.ValueObjects
     {
         public override Guid Value { get; protected set;}
 
-        private MenuId(Guid value)
+        public MenuId(Guid value)
         {
             Value = value;
         }

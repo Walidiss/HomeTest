@@ -4,6 +4,7 @@ using GetDinners.Domain.Dinners.ValueObjects;
 using GetDinners.Domain.Hosts;
 using GetDinners.Domain.Menus;
 using GetDinners.Domain.Menus.Events;
+using GetDinners.Domain.Menus.ValueObjects;
 using GetDinners.Domain.Users.ValueObjects;
 using MediatR;
 using System;
@@ -23,13 +24,13 @@ namespace GetDinners.Application.Menus.Events
             _hostRepository = hostRepository;
         }
 
-        public  Task Handle(CreatedMenuDomainEvent notification, CancellationToken cancellationToken)
+        public  async Task Handle(CreatedMenuDomainEvent notification, CancellationToken cancellationToken)
         {
-      
-            var host = Host.Create("walid","issaoui", "toto", AverageRating.CreateNew(2, 5), userId:UserId.CreateUnique(), DateTime.UtcNow, DateTime.UtcNow);      
-             _hostRepository.AddHost(host);
+            var menuId = new MenuId(notification.menu.Id.Value);
+            //var menuId = MenuId.Create(notification.menu.Id);
+            //var host = Host.Create("walid","issaoui", "toto", AverageRating.CreateNew(2, 5), userId:UserId.CreateUnique(), DateTime.UtcNow, DateTime.UtcNow);      
+            await _hostRepository.AddMenuId(notification.menu.HostId, menuId);
            
-            return Task.CompletedTask;
         }
     }
 }
