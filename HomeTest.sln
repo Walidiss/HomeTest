@@ -67,7 +67,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitDinners.Domain.UnitTests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitDinners.Infrastructure.UnitTests", "GitDinners.Infrastructure.UnitTests", "{26350E37-3477-48EF-AEFB-16E46456C005}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitDinners.Application.UnitTests", "tests\UnitTests\GitDinners.Application.UnitTests\GitDinners.Application.UnitTests.csproj", "{F5556905-173C-4101-BB81-AABCC0BA1AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitDinners.Application.UnitTests", "tests\UnitTests\GitDinners.Application.UnitTests\GitDinners.Application.UnitTests.csproj", "{F5556905-173C-4101-BB81-AABCC0BA1AB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{A2015B6E-4F1B-4E03-92D8-D4E33A1D6A62}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
